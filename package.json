@@ -1,7 +1,7 @@
 {
   "name": "testgear-api-client",
-  "version": "1.0.1",
-  "description": "Client provides methods for communication with TestGear API.",
+  "version": "1.0.5",
+  "description": "Client provides methods for communication with Test Gear API.",
   "main": "dist/index.js",
   "scripts": {
     "test": "jest",
@@ -9,7 +9,7 @@
     "prebuild": "rimraf dist"
   },
   "keywords": [],
-  "author": "Andrey Kiselev",
+  "author": "Integration team",
   "license": "Apache-2.0",
   "devDependencies": {
     "@babel/core": "^7.15.8",
@@ -23,7 +23,7 @@
     "jest": "^27.2.5",
     "rimraf": "^3.0.2",
     "ts-node": "^10.2.1",
-    "typescript": "^4.4.3",
+    "typescript": "^4.5.5",
     "uuid": "^8.3.2"
   },
   "dependencies": {
@@ -31,17 +31,22 @@
     "form-data": "^4.0.0",
     "minimist": "^1.2.5",
     "querystring": "^0.2.1",
-    "zod": "^3.11.6"
+    "zod": "^3.11.6",
+    "xmlhttprequest": "^1.8.0"
   },
+  "files": [
+    "dist"
+  ],
   "bugs": {
     "url": "https://github.com/testgear-tms/api-client-js/issues"
   },
   "homepage": "https://github.com/testgear-tms/api-client-js",
-  "directories": {
-    "test": "test"
-  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/TestGear-TMS/api-client-js.git"
+    "url": "git+https://github.com/testgear-tms/api-client-js.git"
+  },
+  "types": "./dist\\index.d.ts",
+  "directories": {
+    "test": "test"
   }
 }

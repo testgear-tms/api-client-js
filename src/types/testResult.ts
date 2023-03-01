@@ -9,11 +9,11 @@ import { TestPointShort } from './testPoint';
 
 export interface TestResultGet {
   configuration?: Configuration;
-  autotest?: AutotestGet;
+  autoTest?: AutotestGet;
   is?: string;
   configurationId?: string;
   workItemVersionId?: string;
-  autotestId?: string;
+  autoTestId?: string;
   message?: string;
   traces?: string;
   startedOn?: string;

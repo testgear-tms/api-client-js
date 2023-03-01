@@ -18,10 +18,13 @@ import { existsSync, readFileSync } from 'fs';
 import FormData from 'form-data';
 import { basename } from 'path';
 import { validateConfig } from './validation';
+// TODO: implement via the base client
+var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 
 export class Client implements IClient {
   private readonly axios: AxiosInstance;
   private config: ClientConfig;
+  private readonly request: XMLHttpRequest;
 
   constructor(config: Partial<ClientConfigWithFile>) {
     const { configFile, ...restConfig } = config;
@@ -42,13 +45,15 @@ export class Client implements IClient {
         Authorization: `PrivateToken ${this.config.privateToken}`,
       },
     });
+    // TODO: implement via the base client
+    this.request = new XMLHttpRequest();
   }
 
   async checkConnection() {
     try {
       await axios.get(new URL('version.json', this.config.url).toString());
     } catch (err) {
-      throw new Error('Cannot connect to TestGear');
+      throw new Error('Cannot connect to TMS');
     }
   }
 
@@ -85,6 +90,16 @@ export class Client implements IClient {
   ): Promise<void> {
     return this.axios.post(`/autoTests/${autotestId}/workItems`, workItem);
   }
+
+  // TODO: implement via the base client
+  getTestRun(testRunId: string): TestRunGet {
+    const baseURL = new URL('/api/v2', this.config.url).toString();
+    this.request.open("GET", `${baseURL}/testRuns/${testRunId}`, false);
+    this.request.setRequestHeader('Authorization', `PrivateToken ${this.config.privateToken}`);
+    this.request.send(null);
+    
+    return JSON.parse(this.request.responseText);
+}
 
   async createTestRun(testRun: TestRunPost): Promise<TestRunGet> {
     return this.axios

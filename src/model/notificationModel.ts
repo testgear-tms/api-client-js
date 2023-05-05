@@ -18,7 +18,7 @@ export class NotificationModel {
     'createdDate'?: Date | null;
     'isRead'?: boolean;
     'entityId'?: string;
-    'notificationType'?: NotificationTypeModel;
+    'notificationType': NotificationTypeModel;
     'projectGlobalId'?: number | null;
     'projectName'?: string | null;
     'testPlanGlobalId'?: number;

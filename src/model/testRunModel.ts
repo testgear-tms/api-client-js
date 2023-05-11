@@ -34,7 +34,7 @@ export class TestRunModel {
     'completedDate'?: Date | null;
     'build'?: string | null;
     'description'?: string | null;
-    'stateName'?: TestRunState;
+    'stateName': TestRunState;
     'projectId'?: string;
     'testPlanId'?: string | null;
     'runByUserId'?: string | null;

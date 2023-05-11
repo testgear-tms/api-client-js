@@ -27,7 +27,7 @@ export class SharedStepReferenceModel {
     'createdDate'?: Date | null;
     'modifiedDate'?: Date | null;
     'state'?: string | null;
-    'priority'?: WorkItemPriorityModel;
+    'priority': WorkItemPriorityModel;
     'isDeleted'?: boolean;
     /**
     * used for versioning changes in workitem
